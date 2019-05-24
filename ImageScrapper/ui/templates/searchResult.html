@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+</head>
+<body>
+{% block body %}
+
+<form action="/searchData" method="GET">
+	<div class="user-input">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Serach for Images</h1>
+			</div>
+ 
+			<div class="login-form">
+				<div class="control-group">
+				<input style="width:300px" id = "user" type="text" class="input-field"  placeholder="Search for Images" name="keyword"></br>
+				<input type="submit" value="Submit" onclick="window.location.href = '/searchData';"class="btn btn-primary btn-block" >
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+  
+       <div class="container">
+  <h2>Image Gallery</h2>
+  <div class="row">
+    <div class="col-md-4">
+     
+         
+          <img src="ui/static/jiwitesh_1.jpg" alt="Related Book 1" width="20%" height="auto">
+    
+    </div>
+  </div>
+</div>
+          
+   
+
+
+{% endblock %}
+
+</body>
+</html>
