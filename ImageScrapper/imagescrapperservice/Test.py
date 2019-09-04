@@ -4,6 +4,7 @@ import json
 import urllib.request
 import urllib.parse
 import urllib.error
+import ssl
 
 def get_soup(url,header):
     req = urllib.request.Request(url, headers = header)
@@ -14,7 +15,7 @@ def get_soup(url,header):
 
 
 query = input("query image")# you can change the query for the image  here
-image_type="ActiOn"
+image_type=query
 query= query.split()
 query='+'.join(query)
 url="https://www.google.co.in/search?q="+query+"&source=lnms&tbm=isch"
@@ -44,8 +45,9 @@ if not os.path.exists(DIR):
 ###print images
 for i , (img , Type) in enumerate( ActualImages):
     try:
+        ctx = ssl._create_unverified_context()
         req = urllib.request.Request(img, headers = header)
-        respData = urllib.request.urlopen(req)
+        respData = urllib.request.urlopen(req, context=ctx)
         raw_img = respData.read()
 
         cntr = len([i for i in os.listdir(DIR) if image_type in i]) + 1
